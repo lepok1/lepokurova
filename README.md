@@ -1,3 +1,1 @@
-#проект
-описание
-Develop ВЕТКА
+Initial project version
