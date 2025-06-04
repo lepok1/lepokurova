@@ -2,3 +2,4 @@
 коммит в feature/A
 Feature A
 Feature A2
+Еще изменение из feature/A
