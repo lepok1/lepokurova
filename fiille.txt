@@ -1,3 +1,4 @@
 коммит in feature/A
 коммит в feature/A
 Feature A
+Feature A2
