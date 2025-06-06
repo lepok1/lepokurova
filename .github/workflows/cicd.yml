@@ -1,0 +1,33 @@
+name: CI/CD Simulation
+
+on:
+  push:
+    branches: [ "main" ]  
+  pull_request:
+    branches: [ "main" ] 
+
+jobs:
+  greet-and-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4  
+
+      - name: Print greeting
+        run: echo "Hello CI/CD!"  
+
+      
+      - name: Run pylint (if Python files exist)
+        if: contains(github.event.pull_request.changed_files, '.py') || contains(github.event.commits[0].modified, '.py')
+        run: |
+          pip install pylint
+          pylint --version
+          pylint *.py || true  
+
+     
+      - name: Run eslint (if JS files exist)
+        if: contains(github.event.pull_request.changed_files, '.js') || contains(github.event.commits[0].modified, '.js')
+        run: |
+          npm install -g eslint
+          eslint --version
+          eslint *.js || true  
